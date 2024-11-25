@@ -1,0 +1,21 @@
+{
+  "name": "@easyfinance/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "files": [
+    "nest.js",
+    "react.js",
+    "library.js"
+  ],
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.2.2",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "@easyfinance/prettier-config": "workspace:*"
+  },
+  "prettier": "@easyfinance/prettier-config",
+  "eslintConfig": {
+    "extends": [
+      "./library.js"
+    ]
+  }
+}
