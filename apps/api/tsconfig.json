@@ -1,19 +1,8 @@
 {
   "extends": "@easyfinance/typescript-config/nest.json",
   "compilerOptions": {
-    "baseUrl": "./",
-    "target": "ESNEXT",
-    "module": "commonjs",
-    "rootDir": "./",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "outDir": "./dist",
-    "strict": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "paths": {
+    "@/*": ["./src/*"]
+  }
   },
-  "exclude": ["node_modules"]
 }

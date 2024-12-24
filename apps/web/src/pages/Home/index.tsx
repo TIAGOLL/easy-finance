@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -9,7 +10,6 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card'
-import { toast } from '@/hooks/use-toast'
 
 export function Home() {
 	const [activeIndex, setActiveIndex] = useState<number | null>(null)
@@ -40,12 +40,15 @@ export function Home() {
 				'Basta clicar em "Esqueci minha senha" na tela de login e seguir as instruções para criar uma nova senha.',
 		},
 	]
+
 	return (
 		<div className='font-sans'>
-			{/* Header Section */}
 			<header className='fixed left-0 right-0 top-0 z-50 bg-[#6D28D9] px-8 py-4 text-white shadow-md'>
 				<div className='mx-auto flex max-w-screen-xl items-center justify-between'>
-					<h1 className='text-3xl font-semibold'>EasyBilling</h1>
+					<div className='flex items-center justify-center space-x-2 font-serif'>
+						<img src='/images/favicon.ico' alt='Logo' className='size-24' />
+						<h1 className='text-2xl font-bold'>Easy Finance</h1>
+					</div>
 					<nav className='hidden space-x-8 md:flex'>
 						<NavLink to='#features' className='text-lg hover:underline'>
 							Funcionalidades
@@ -56,15 +59,14 @@ export function Home() {
 						<NavLink to='#cta' className='text-lg hover:underline'>
 							Comece Agora
 						</NavLink>
-						<NavLink to='/auth/signin' className='text-lg hover:underline'>
+						<NavLink to='/auth/sign-in' className='text-lg hover:underline'>
 							Login
 						</NavLink>
 					</nav>
 				</div>
 			</header>
 
-			{/* Hero Section */}
-			<section className='bg-[#6D28D9] px-4 py-32 text-center text-white md:px-8'>
+			<section className='bg-[#6D28D9] px-4 py-56 text-center text-white md:px-8'>
 				<div className='mx-auto max-w-screen-xl'>
 					<h2 className='mb-4 text-4xl font-bold'>
 						Controle suas finanças de forma simples e eficaz
@@ -74,13 +76,10 @@ export function Home() {
 						gastos e economizar com mais inteligência.
 					</p>
 					<Button
-						className='mb-4 px-8 py-3 text-lg md:mb-0'
+						className='mb-4 px-8 py-3 text-lg text-black md:mb-0'
 						variant='outline'
 						onClick={() =>
-							toast({
-								title: 'Em breve!',
-								description: 'Estamos trabalhando no lançamento do app.',
-							})
+							toast.info('Em breve! Estamos trabalhando no lançamento do app.')
 						}
 					>
 						Baixe o App
@@ -88,7 +87,6 @@ export function Home() {
 				</div>
 			</section>
 
-			{/* Features Section */}
 			<section id='features' className='bg-gray-100 py-20'>
 				<div className='mx-auto max-w-screen-xl text-center'>
 					<h2 className='mb-12 text-3xl font-bold text-[#6D28D9]'>
@@ -138,23 +136,22 @@ export function Home() {
 				</div>
 			</section>
 
-			{/* Testimonial Section */}
 			<section className='bg-[#F3E8FF] py-20 text-center'>
 				<div className='mx-auto max-w-screen-xl'>
 					<h2 className='mb-8 text-3xl font-bold text-[#6D28D9]'>
 						O que nossos usuários dizem
 					</h2>
 					<div className='flex flex-wrap justify-center gap-12'>
-						<div className='w-80 rounded-lg bg-white p-6 shadow-lg'>
-							<p className='mb-4 text-lg text-black'>
+						<div className='w-80 rounded-lg bg-white p-6 text-black shadow-lg'>
+							<p className='mb-4 text-lg'>
 								“O EasyBilling me ajudou a entender onde estou gastando mais e
 								me ajudou a economizar.”
 							</p>
 							<p className='font-semibold'>João da Silva</p>
 							<p className='text-sm text-gray-600'>Designer</p>
 						</div>
-						<div className='w-80 rounded-lg bg-white p-6 shadow-lg'>
-							<p className='mb-4 text-lg text-black'>
+						<div className='w-80 rounded-lg bg-white p-6 text-black shadow-lg'>
+							<p className='mb-4 text-lg'>
 								“Agora consigo planejar melhor meus gastos e nunca mais fico sem
 								saber para onde foi meu dinheiro.”
 							</p>
@@ -165,7 +162,6 @@ export function Home() {
 				</div>
 			</section>
 
-			{/* FAQ Section */}
 			<section id='faq' className='bg-[#6D28D9] py-20 text-white'>
 				<div className='mx-auto max-w-screen-xl text-center'>
 					<h2 className='mb-8 text-3xl font-bold'>
@@ -216,7 +212,6 @@ export function Home() {
 				</div>
 			</section>
 
-			{/* Call to Action Section */}
 			<section id='cta' className='bg-white py-20 text-[#6D28D9]'>
 				<div className='mx-auto max-w-screen-xl text-center'>
 					<h2 className='mb-4 text-3xl font-bold'>
@@ -230,10 +225,7 @@ export function Home() {
 						className='px-8 py-3 text-lg text-white'
 						variant='outline'
 						onClick={() =>
-							toast({
-								title: 'Em breve!',
-								description: 'Estamos trabalhando para lançar o app.',
-							})
+							toast.info('Em breve! Estamos trabalhando no lançamento do app.')
 						}
 					>
 						Baixar o App
@@ -241,7 +233,6 @@ export function Home() {
 				</div>
 			</section>
 
-			{/* Footer Section */}
 			<footer className='bg-gray-900 py-6 text-white'>
 				<div className='mx-auto flex max-w-screen-xl items-center justify-between'>
 					<div className='space-x-4'>

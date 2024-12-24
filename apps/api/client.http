@@ -1,0 +1,93 @@
+@baseUrl = http://localhost:3030
+@authToken = {{authenticate.response.body.token}}
+
+###
+
+# @name create-account
+POST {{baseUrl}}/accounts 
+Content-Type: application/json
+
+{
+    "name": "Tiago Emanuel",
+    "email": "tiagoepitanga10@gmail.com",
+    "password": "123456"
+}
+
+###
+
+# @name authenticate
+POST {{baseUrl}}/sessions/password
+Content-Type: application/json
+
+{
+    "email": "tiagoepitanga10@gmail.com",
+    "password": "123456"
+}
+
+
+###
+
+# @name recover-password
+POST {{baseUrl}}/auth/request-recover-password
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "email": "tiagoepitanga10@gmail.com"
+}
+
+###
+
+# @name create-task
+POST {{baseUrl}}/tasks
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "name": "Fazer almoço"
+}
+
+###
+
+# @name get-tasks
+GET {{baseUrl}}/tasks?page=1
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name get-profile
+GET {{baseUrl}}/sessions/get-profile
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name delete-task
+DELETE  {{baseUrl}}/tasks
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "id": "b19d22d8-08da-422b-8a05-5ef795b7d0f7"
+}
+
+###
+
+# @name get-task-by-id
+GET  {{baseUrl}}/tasks/0b13dcaf-9742-47b7-affa-23b66bc5c876
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+###
+
+# @name put-task
+PUT  {{baseUrl}}/tasks
+Content-Type: application/json
+Authorization: Bearer {{authToken}}
+
+{
+    "id": "0b13dcaf-9742-47b7-affa-23b66bc5c876",
+    "name": "Fazer janta"
+}
+
