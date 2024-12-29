@@ -14,7 +14,7 @@ export async function ResetPasswordService({
 	password,
 }: ResetPasswordRequest) {
 	const result = await api
-		.post('auth/reset-password', {
+		.patch('auth/reset-password', {
 			json: {
 				token,
 				password,

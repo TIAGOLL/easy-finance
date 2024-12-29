@@ -4,6 +4,14 @@ import { PrismaService } from './prisma.service';
 
 const DEFAULT_USERS: Array<Omit<users, 'id'>> = [
 	{
+		name: 'Tiago Emanuel de Lima',
+		email: 'tiagoepitanga10@gmail.com',
+		email_verified: false,
+		password: '$2a$08$3/43IUwQ3D8fb00F/AeHAumaS7gV1o2I33fbuBCjorBhTK3OKVmZu',
+		created_at: null,
+		updated_at: null,
+	},
+	{
 		name: 'Tim Apple',
 		email: 'tim@apple.com',
 		email_verified: true,

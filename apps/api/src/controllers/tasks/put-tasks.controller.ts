@@ -7,7 +7,7 @@ import { PrismaService } from '@/prisma/prisma.service';
 
 const PutTaskSchema = z.object({
 	id: z.string(),
-	name: z.string(),
+	title: z.string(),
 });
 
 const bodyValidationPipe = new ZodValidationPipe(PutTaskSchema);
@@ -21,7 +21,7 @@ export class PutTasksController {
 
 	@Put()
 	async handle(@Body(bodyValidationPipe) body: PutTaskSchema) {
-		const { id, name } = body;
+		const { id, title } = body;
 
 		const taskExists = await this.prisma.tasks.findUnique({
 			where: {
@@ -38,7 +38,7 @@ export class PutTasksController {
 				id,
 			},
 			data: {
-				name,
+				title,
 			},
 		});
 

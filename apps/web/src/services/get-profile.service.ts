@@ -9,7 +9,7 @@ interface getProfileResponse {
 	id: string
 }
 
-export async function getProfile() {
+export async function GetProfile() {
 	const result = await api
 		.get('sessions/get-profile')
 		.json<getProfileResponse>()

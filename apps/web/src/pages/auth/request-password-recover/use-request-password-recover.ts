@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 import { z } from 'zod'
 
 import { RequestPasswordRecoverService } from '@/services/request-password-recover.service'
-import { requestPasswordRecoverSchema } from '@/validations/forms/request-password-recover'
+import { requestPasswordRecoverSchema } from '@/forms/validations/request-password-recover'
 
 type RequestPasswordRecoverSchema = z.infer<typeof requestPasswordRecoverSchema>
 

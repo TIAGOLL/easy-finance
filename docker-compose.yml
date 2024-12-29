@@ -5,26 +5,26 @@ volumes:
     driver: local
 
 services:
-  web:
-    container_name: web
-    build:
-      context: .
-      dockerfile: ./apps/web/Dockerfile
-    ports:
-      - 5173:5173
-    networks:
-      - easyfinance_network
-    environment:
-      - VITE_PORT=5173
-  api:
-    container_name: api
-    build:
-      context: .
-      dockerfile: ./apps/api/Dockerfile
-    ports:
-      - 3000:3000
-    networks:
-      - easyfinance_network
+  # web:
+  #   container_name: web
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/web/Dockerfile
+  #   ports:
+  #     - 5173:5173
+  #   networks:
+  #     - easyfinance_network
+  #   environment:
+  #     - VITE_PORT=5173
+  # api:
+  #   container_name: api
+  #   build:
+  #     context: .
+  #     dockerfile: ./apps/api/Dockerfile
+  #   ports:
+  #     - 3000:3000
+  #   networks:
+  #     - easyfinance_network
   db: 
     image: bitnami/postgresql:latest
     container_name: db

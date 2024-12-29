@@ -1,4 +1,4 @@
-import { Body, Controller, HttpCode, Post, ServiceUnavailableException, UnauthorizedException } from '@nestjs/common';
+import { Body, Controller, HttpCode, Patch, ServiceUnavailableException, UnauthorizedException } from '@nestjs/common';
 import { hash } from 'bcryptjs';
 import { z } from 'zod';
 
@@ -22,7 +22,7 @@ export class resetPasswordController {
 		private readonly mail: MailSenderService
 	) {}
 
-	@Post('reset-password')
+	@Patch('reset-password')
 	@HttpCode(201)
 	async handle(@Body(bodyValidationPipe) body: ResetPasswordBodySchema) {
 		const { token, password } = body;

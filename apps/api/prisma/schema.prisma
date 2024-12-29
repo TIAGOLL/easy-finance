@@ -60,7 +60,8 @@ enum role {
 
 model Tasks {
   id         String    @id @unique @default(uuid())
-  name       String
+  title      String
+  finished   Boolean   @default(false)
   created_at DateTime? @default(now())
   updated_at DateTime? @updatedAt
 

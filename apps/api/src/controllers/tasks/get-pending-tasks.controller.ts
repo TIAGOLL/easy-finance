@@ -13,19 +13,20 @@ type PageQueryParamSchema = z.infer<typeof pageQueryParamSchema>;
 
 const queryValidationPipe = new ZodValidationPipe(pageQueryParamSchema);
 
-@Controller('/tasks')
+@Controller('/pending-tasks')
 @UseGuards(JwtAuthGuard)
-export class GetTaksController {
+export class GetPendingTaksController {
 	constructor(private readonly prisma: PrismaService) {}
 
 	@Get()
 	async handle(@Query('page', queryValidationPipe) page: PageQueryParamSchema, @CurrentUser() user: UserPayload) {
 		const { sub } = user;
-		const perPage = 6;
+		const perPage = 10;
 
 		const tasks = await this.prisma.tasks.findMany({
 			where: {
 				user_id: sub,
+				finished: false,
 			},
 			take: perPage,
 			skip: (page - 1) * perPage,

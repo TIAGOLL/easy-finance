@@ -69,13 +69,13 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-    "id": "b19d22d8-08da-422b-8a05-5ef795b7d0f7"
+    "id": "99db9fac-166a-4e90-ad26-05f4aa8790e8"
 }
 
 ###
 
 # @name get-task-by-id
-GET  {{baseUrl}}/tasks/0b13dcaf-9742-47b7-affa-23b66bc5c876
+GET  {{baseUrl}}/tasks/63f76395-8dd2-41db-b1c3-debe22d7c90d
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -87,7 +87,7 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-    "id": "0b13dcaf-9742-47b7-affa-23b66bc5c876",
+    "id": "63f76395-8dd2-41db-b1c3-debe22d7c90d",
     "name": "Fazer janta"
 }
 

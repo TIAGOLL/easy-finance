@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 import type { z } from 'zod'
 
 import { ResetPasswordService } from '@/services/reset-password.service'
-import { resetPasswordSchema } from '@/validations/forms/reset-password'
+import { resetPasswordSchema } from '@/forms/validations/reset-password'
 
 type ResetPasswordSchema = z.infer<typeof resetPasswordSchema>
 

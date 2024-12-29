@@ -7,6 +7,8 @@ import { SignUp } from '@/pages/auth/sign-up'
 import { Home } from '@/pages/home'
 import { Tasks } from '@/pages/tasks'
 
+import { Private } from './private'
+
 function RoutesApp() {
 	return (
 		<BrowserRouter>
@@ -18,7 +20,14 @@ function RoutesApp() {
 				<Route path='/auth/forgot-password' element={<ForgotPassword />} />
 
 				{/* Área logada */}
-				<Route path='/tasks' element={<Tasks />} />
+				<Route
+					path='/tasks'
+					element={
+						<Private>
+							<Tasks />
+						</Private>
+					}
+				/>
 			</Routes>
 		</BrowserRouter>
 	)

@@ -43,7 +43,10 @@ CREATE TABLE "accounts" (
 -- CreateTable
 CREATE TABLE "Tasks" (
     "id" TEXT NOT NULL,
-    "name" TEXT NOT NULL,
+    "title" TEXT NOT NULL,
+    "finished" BOOLEAN NOT NULL DEFAULT false,
+    "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
+    "updated_at" TIMESTAMP(3),
     "user_id" TEXT NOT NULL,
 
     CONSTRAINT "Tasks_pkey" PRIMARY KEY ("id")
@@ -72,6 +75,3 @@ CREATE UNIQUE INDEX "Tasks_id_key" ON "Tasks"("id");
 
 -- CreateIndex
 CREATE INDEX "Tasks_user_id_idx" ON "Tasks"("user_id");
-
--- CreateIndex
-CREATE UNIQUE INDEX "Tasks_user_id_key" ON "Tasks"("user_id");

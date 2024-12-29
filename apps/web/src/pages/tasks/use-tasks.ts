@@ -1,49 +1,52 @@
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useQuery } from '@tanstack/react-query'
-import { useForm } from 'react-hook-form'
-import { z } from 'zod'
+import { HTTPError } from 'ky'
+import { toast } from 'react-toastify'
 
-import { getProfile } from '@/services/get-profile.service'
-import { getTasks } from '@/services/get-tasks.service'
-import { tasksSchema } from '@/validations/forms/create-task'
+import { queryClient } from '@/lib/react-query'
+import { DeleteTaskService } from '@/services/delete-task.service'
+import { FinishTaskService } from '@/services/finish-task.service'
 
 type deleteTaskSchema = {
 	id: string
 }
-
-type updateTaskSchema = {
+type finishTaskSchema = {
 	id: string
-	name: string
 }
 
-type TasksSchema = z.infer<typeof tasksSchema>
+export function useTasks() {
+	async function deleteTask({ id }: deleteTaskSchema) {
+		try {
+			const { message } = await DeleteTaskService({ id })
 
-export function useTaks() {
-	const {
-		formState: { errors },
-		register,
-		handleSubmit,
-	} = useForm({
-		resolver: zodResolver(tasksSchema),
-	})
+			if (message) {
+				toast.info(message)
+			}
+		} catch (error) {
+			if (error instanceof HTTPError) {
+				toast.error(error.message)
+			}
+		} finally {
+			queryClient.invalidateQueries({ queryKey: ['tasks'] })
+		}
+	}
 
-	const { data, isLoading } = useQuery({
-		queryKey: ['tasks'],
-		queryFn: () => getTasks(),
-	})
+	async function finishTask({ id }: finishTaskSchema) {
+		try {
+			const { message } = await FinishTaskService({ id })
 
-	async function createTask({ name }: TasksSchema) {}
-	async function deleteTask({ id }: deleteTaskSchema) {}
-	async function updateTask({ id, name }: updateTaskSchema) {}
+			if (message) {
+				toast.success(message)
+			}
+		} catch (error) {
+			if (error instanceof HTTPError) {
+				toast.error(error.message)
+			}
+		} finally {
+			queryClient.invalidateQueries({ queryKey: ['tasks'] })
+		}
+	}
 
 	return {
-		errors,
-		handleSubmit,
-		register,
-		createTask,
 		deleteTask,
-		updateTask,
-		isLoading,
-		data,
+		finishTask,
 	}
 }

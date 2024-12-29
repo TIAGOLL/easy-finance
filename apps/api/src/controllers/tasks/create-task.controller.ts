@@ -8,7 +8,7 @@ import { ZodValidationPipe } from '@/pipes/zod-validation-pipe';
 import { PrismaService } from '@/prisma/prisma.service';
 
 const CreateTaskSchema = z.object({
-	name: z.string(),
+	title: z.string(),
 });
 
 const bodyValidationPipe = new ZodValidationPipe(CreateTaskSchema);
@@ -23,16 +23,18 @@ export class CreateTaskController {
 	@Post()
 	@HttpCode(201)
 	async handle(@Body(bodyValidationPipe) body: CreateTaskSchema, @CurrentUser() user: UserPayload) {
-		const { name } = body;
+		const { title } = body;
 		const { sub: userid } = user;
 
 		await this.prisma.$transaction([
 			this.prisma.tasks.create({
 				data: {
 					user_id: userid,
-					name,
+					title,
 				},
 			}),
 		]);
+
+		return { message: 'A tarefa foi criada.' };
 	}
 }

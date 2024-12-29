@@ -11,7 +11,9 @@ import { SignInWithEmailAndPasswordController } from './controllers/auth/sign-in
 import { SignUpWithEmailAndPasswordController } from './controllers/auth/sign-up-with-email-and-password.controller';
 import { CreateTaskController } from './controllers/tasks/create-task.controller';
 import { DeleteTask } from './controllers/tasks/delete-task.controller';
-import { GetTaksController } from './controllers/tasks/get-tasks.controller';
+import { FinishTaskController } from './controllers/tasks/finish-task.controller';
+import { GetFinishedTaksController } from './controllers/tasks/get-finished-tasks.controller';
+import { GetPendingTaksController } from './controllers/tasks/get-pending-tasks.controller';
 import { GetTaskById } from './controllers/tasks/get-tasks-by-id.controller';
 import { PutTasksController } from './controllers/tasks/put-tasks.controller';
 import { MailSenderService } from './mail/mail-sender.service';
@@ -31,11 +33,13 @@ import { PrismaService } from './prisma/prisma.service';
 		CreateTaskController,
 		requestPasswordRecoverController,
 		resetPasswordController,
-		GetTaksController,
+		GetFinishedTaksController,
 		GetProfileController,
 		DeleteTask,
 		GetTaskById,
+		FinishTaskController,
 		PutTasksController,
+		GetPendingTaksController,
 	],
 	providers: [PrismaService, MailSenderService],
 })

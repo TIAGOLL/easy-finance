@@ -9,9 +9,8 @@ import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { z } from 'zod'
 
-import { signInWithEmailAndPasswordService } from '@/services/sign-in-with-email-and-password.service'
-
-import { signInWithEmailAndPasswordSchema } from '../../../validations/forms/sign-in-with-email-and-password'
+import { SignInWithEmailAndPasswordService } from '@/services/sign-in-with-email-and-password.service'
+import { signInWithEmailAndPasswordSchema } from '@/forms/validations/sign-in-with-email-and-password'
 
 type SignInWithEmailAndPasswordSchema = z.infer<
 	typeof signInWithEmailAndPasswordSchema
@@ -35,7 +34,7 @@ export function useSignIn() {
 	}: SignInWithEmailAndPasswordSchema) {
 		setLoading(true)
 		try {
-			const { token, message } = await signInWithEmailAndPasswordService({
+			const { token, message } = await SignInWithEmailAndPasswordService({
 				email,
 				password,
 			})

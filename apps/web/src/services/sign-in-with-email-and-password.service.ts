@@ -10,7 +10,7 @@ interface SignInWithEmailAndPasswordResponse {
 	message: string
 }
 
-export async function signInWithEmailAndPasswordService({
+export async function SignInWithEmailAndPasswordService({
 	email,
 	password,
 }: SignInWithEmailAndPasswordRequest) {
