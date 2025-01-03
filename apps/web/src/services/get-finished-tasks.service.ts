@@ -1,19 +1,24 @@
 import { api } from './api-client.service'
 
-interface Task {
-	id: string
-	title: string
-	created_at: string
-	updated_at: string
-	user_id: string
-}
-
 interface TasksResponse {
-	tasks: Task[]
+	tasks: {
+		id: string
+		title: string
+		created_at: string
+		updated_at: string
+		user_id: string
+	}[]
+	totalTasks: number
 }
 
-export async function GetFinishedTasks() {
-	const result = await api.get('finished-tasks?page=1').json<TasksResponse>()
+interface TasksRequest {
+	page: number
+}
+
+export async function GetFinishedTasks({ page }: TasksRequest) {
+	const result = await api
+		.get(`finished-tasks?page=${page}`)
+		.json<TasksResponse>()
 
 	return result
 }

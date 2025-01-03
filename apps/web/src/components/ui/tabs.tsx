@@ -1,9 +1,42 @@
 import * as TabsPrimitive from '@radix-ui/react-tabs'
 import * as React from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 import { cn } from '@/lib/utils'
 
-const Tabs = TabsPrimitive.Root
+const Tabs = ({
+	defaultValue,
+	children,
+	...props
+}: {
+	defaultValue: string
+	children: React.ReactNode
+	className?: string
+}) => {
+	const [searchParams, setSearchParams] = useSearchParams()
+
+	const currentTab = searchParams.get('tab') || defaultValue
+
+	React.useEffect(() => {
+		if (!searchParams.get('tab')) {
+			searchParams.set('tab', currentTab)
+			setSearchParams(searchParams)
+		}
+	})
+
+	return (
+		<TabsPrimitive.Root
+			{...props}
+			value={currentTab}
+			onValueChange={(newValue) => {
+				searchParams.set('tab', newValue)
+				setSearchParams(searchParams)
+			}}
+		>
+			{children}
+		</TabsPrimitive.Root>
+	)
+}
 
 const TabsList = React.forwardRef<
 	React.ElementRef<typeof TabsPrimitive.List>,

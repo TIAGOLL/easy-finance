@@ -15,7 +15,7 @@ export async function SignUpWithEmailAndPasswordService({
 	email,
 	password,
 }: SignUpWithEmailAndPasswordRequest) {
-	const res = await api
+	const result = await api
 		.post('accounts', {
 			json: {
 				name,
@@ -25,5 +25,5 @@ export async function SignUpWithEmailAndPasswordService({
 		})
 		.json<SignUpWithEmailAndPasswordResponse>()
 
-	return res
+	return result
 }

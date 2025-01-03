@@ -43,7 +43,7 @@ importers:
         version: 10.4.9(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9)
       '@nestjs/swagger':
         specifier: ^8.1.0
-        version: 8.1.0(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.9)(reflect-metadata@0.1.14)(rxjs@7.8.1))(reflect-metadata@0.1.14)
+        version: 8.1.0(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9)(reflect-metadata@0.1.14)
       '@prisma/client':
         specifier: ^5.2.0
         version: 5.22.0(prisma@5.22.0)
@@ -95,7 +95,7 @@ importers:
         version: 10.2.3(chokidar@3.6.0)(typescript@5.5.4)
       '@nestjs/testing':
         specifier: ^10.0.0
-        version: 10.4.11(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.9)(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.9(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9))
+        version: 10.4.11(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9)(@nestjs/platform-express@10.4.9)
       '@rocketseat/eslint-config':
         specifier: ^2.1.0
         version: 2.2.2(@types/eslint@9.6.1)(eslint@8.57.1)(typescript@5.5.4)
@@ -228,6 +228,9 @@ importers:
       '@radix-ui/react-tooltip':
         specifier: ^1.1.4
         version: 1.1.4(@types/react-dom@18.3.1)(@types/react@18.3.12)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@tanstack/react-query':
+        specifier: ^5.62.8
+        version: 5.62.11(react@18.3.1)
       '@vitejs/plugin-react':
         specifier: ^4.3.3
         version: 4.3.3(vite@6.0.1(@types/node@20.17.8)(jiti@1.21.6)(terser@5.36.0)(yaml@2.6.1))
@@ -2107,6 +2110,14 @@ packages:
 
   '@swc/types@0.1.17':
     resolution: {integrity: sha512-V5gRru+aD8YVyCOMAjMpWR1Ui577DD5KSJsHP8RAxopAH22jFz6GZd/qxqjO6MJHQhcsjvjOFXyDhyLQUnMveQ==}
+
+  '@tanstack/query-core@5.62.9':
+    resolution: {integrity: sha512-lwePd8hNYhyQ4nM/iRQ+Wz2cDtspGeZZHFZmCzHJ7mfKXt+9S301fULiY2IR2byJYY6Z03T427E5PoVfMexHjw==}
+
+  '@tanstack/react-query@5.62.11':
+    resolution: {integrity: sha512-Xb1nw0cYMdtFmwkvH9+y5yYFhXvLRCnXoqlzSw7UkqtCVFq3cG8q+rHZ2Yz1XrC+/ysUaTqbLKJqk95mCgC1oQ==}
+    peerDependencies:
+      react: ^18 || ^19
 
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
@@ -5875,7 +5886,7 @@ snapshots:
     transitivePeerDependencies:
       - chokidar
 
-  '@nestjs/swagger@8.1.0(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.9)(reflect-metadata@0.1.14)(rxjs@7.8.1))(reflect-metadata@0.1.14)':
+  '@nestjs/swagger@8.1.0(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9)(reflect-metadata@0.1.14)':
     dependencies:
       '@microsoft/tsdoc': 0.15.1
       '@nestjs/common': 10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1)
@@ -5887,7 +5898,7 @@ snapshots:
       reflect-metadata: 0.1.14
       swagger-ui-dist: 5.18.2
 
-  '@nestjs/testing@10.4.11(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.9)(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.9(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9))':
+  '@nestjs/testing@10.4.11(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/core@10.4.9)(@nestjs/platform-express@10.4.9)':
     dependencies:
       '@nestjs/common': 10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1)
       '@nestjs/core': 10.4.9(@nestjs/common@10.4.9(reflect-metadata@0.1.14)(rxjs@7.8.1))(@nestjs/platform-express@10.4.9)(reflect-metadata@0.1.14)(rxjs@7.8.1)
@@ -6970,6 +6981,13 @@ snapshots:
   '@swc/types@0.1.17':
     dependencies:
       '@swc/counter': 0.1.3
+
+  '@tanstack/query-core@5.62.9': {}
+
+  '@tanstack/react-query@5.62.11(react@18.3.1)':
+    dependencies:
+      '@tanstack/query-core': 5.62.9
+      react: 18.3.1
 
   '@tsconfig/node10@1.0.11': {}
 

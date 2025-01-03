@@ -10,7 +10,7 @@ export const api = ky.create({
 				const cookies = nookies.get()
 				const token = cookies.token
 
-				if (!token) {
+				if (!token && !window.location.href.includes('auth')) {
 					redirect('/auth/sign-in')
 				}
 
@@ -19,7 +19,7 @@ export const api = ky.create({
 		],
 		afterResponse: [
 			(_request, _options, response) => {
-				if (response.status === 401) {
+				if (response.status === 401 && !window.location.href.includes('auth')) {
 					nookies.destroy(null, 'token')
 
 					window.location.href = '/auth/sign-in'

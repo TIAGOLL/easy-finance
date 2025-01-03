@@ -1,4 +1,4 @@
-import { ModeToggle } from '@/components/mode-toggle'
+import { ThemeSwitcher } from '@/components/theme-switcher'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { CreateTaskForm } from '@/forms/create-task-form'
 
@@ -9,7 +9,7 @@ export function Tasks() {
 	return (
 		<div className='flex h-screen w-full flex-col place-items-center px-4 py-8'>
 			<div className='absolute bottom-32 left-32'>
-				<ModeToggle />
+				<ThemeSwitcher />
 			</div>
 			<h1 className='mb-4 flex justify-center text-2xl font-semibold'>
 				Minhas tarefas

@@ -35,6 +35,12 @@ export class GetPendingTaksController {
 			},
 		});
 
-		return { tasks };
+		const totalTasks = await this.prisma.tasks.count({
+			where: {
+				finished: false,
+			},
+		});
+
+		return { tasks, totalTasks };
 	}
 }

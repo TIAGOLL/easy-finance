@@ -3,7 +3,7 @@ import { LuMoon, LuSun } from 'react-icons/lu'
 import { useTheme } from '@/components/theme-provider'
 import { Button } from '@/components/ui/button'
 
-export function ModeToggle() {
+export function ThemeSwitcher() {
 	const { setTheme, theme } = useTheme()
 	async function handleTheme() {
 		const togleTheme = theme === 'light' ? 'dark' : 'light'

@@ -62,7 +62,7 @@ export function UpdateTaskForm({ id }: { id: string }) {
 
 	return (
 		<AlertDialog open={dialogOpen}>
-			<AlertDialogTrigger>
+			<AlertDialogTrigger asChild>
 				<Button variant='outline' size='sm' onClick={() => setDialogOpen(true)}>
 					<LuPencil className='size-4' />
 				</Button>

@@ -1,7 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
+import { useEffect } from 'react'
 import { FaCheck } from 'react-icons/fa6'
 import { MdOutlineDelete } from 'react-icons/md'
 
+import { PaginationSection } from '@/components/pagination-section'
 import {
 	AlertDialog,
 	AlertDialogAction,
@@ -21,28 +23,44 @@ import {
 	TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { UpdateTaskForm } from '@/forms/update-task-form'
+import { queryClient } from '@/lib/react-query'
 import { GetPendingTasks } from '@/services/get-pending-tasks.service'
 
+import { LoadingTasks } from './loading-tasks'
 import { useTasks } from './use-tasks'
 
 export function PendingTasks() {
-	const { deleteTask, finishTask } = useTasks()
+	const { deleteTask, finishTask, page } = useTasks()
 
 	const { data, isLoading } = useQuery({
-		queryKey: ['tasks'],
-		queryFn: () => GetPendingTasks(),
+		queryKey: ['tasks', 'pending-tasks', page],
+		queryFn: async () => await GetPendingTasks({ page }),
 	})
+
+	useEffect(() => {
+		queryClient.invalidateQueries({ queryKey: ['pending-tasks'] })
+	}, [page])
+
+	if (isLoading || !data) return <LoadingTasks />
 
 	return (
 		<Card className='flex flex-col items-center justify-center pt-5'>
-			<CardContent className='grid w-full grid-cols-2 gap-4'>
-				{data && data.tasks && data.tasks.length > 0 ? (
-					data?.tasks?.map((task, index) => (
+			<CardContent className='grid min-h-[40rem] w-full min-w-[40rem] grid-cols-2 grid-rows-5 gap-4'>
+				{data?.totalTasks <= 0 && (
+					<p className='col-span-2 text-center text-sm text-muted-foreground'>
+						Nenhuma atividade adicionada ainda.
+					</p>
+				)}
+
+				{data.tasks.length > 0 &&
+					data.tasks.map((task, index) => (
 						<div
 							key={index}
-							className='col-span-1 flex w-[20rem] flex-col items-center justify-between gap-2 rounded-md border p-2'
+							className='col-span-1 flex max-h-[8rem] w-[20rem] flex-col items-center justify-between gap-2 rounded-md border p-2'
 						>
-							<span>{task.title}</span>
+							<span className='w-full overflow-hidden overflow-ellipsis'>
+								{task.title}
+							</span>
 							<div className='flex gap-2'>
 								<TooltipProvider>
 									<Tooltip>
@@ -61,12 +79,10 @@ export function PendingTasks() {
 													</AlertDialogHeader>
 													<AlertDialogFooter>
 														<AlertDialogCancel>Cancelar</AlertDialogCancel>
-														<AlertDialogAction asChild>
-															<Button
-																onClick={() => finishTask({ id: task.id })}
-															>
-																Finalizar
-															</Button>
+														<AlertDialogAction
+															onClick={() => finishTask({ id: task.id })}
+														>
+															Finalizar
 														</AlertDialogAction>
 													</AlertDialogFooter>
 												</AlertDialogContent>
@@ -87,7 +103,7 @@ export function PendingTasks() {
 									<Tooltip>
 										<TooltipTrigger>
 											<AlertDialog>
-												<AlertDialogTrigger>
+												<AlertDialogTrigger asChild>
 													<Button variant='destructive' size='sm'>
 														<MdOutlineDelete className='size-4' />
 													</Button>
@@ -100,12 +116,10 @@ export function PendingTasks() {
 													</AlertDialogHeader>
 													<AlertDialogFooter>
 														<AlertDialogCancel>Cancelar</AlertDialogCancel>
-														<AlertDialogAction asChild>
-															<Button
-																onClick={() => deleteTask({ id: task.id })}
-															>
-																Excluir
-															</Button>
+														<AlertDialogAction
+															onClick={() => deleteTask({ id: task.id })}
+														>
+															Excluir
 														</AlertDialogAction>
 													</AlertDialogFooter>
 												</AlertDialogContent>
@@ -116,12 +130,13 @@ export function PendingTasks() {
 								</TooltipProvider>
 							</div>
 						</div>
-					))
-				) : (
-					<p className='col-span-2 text-center text-sm text-muted-foreground'>
-						Nenhuma atividade adicionada ainda.
-					</p>
-				)}
+					))}
+				<div className='col-span-2 row-end-7 flex items-end justify-center'>
+					<PaginationSection
+						ItemsPerPage={10}
+						totalItems={data?.totalTasks ?? 1}
+					/>
+				</div>
 			</CardContent>
 		</Card>
 	)

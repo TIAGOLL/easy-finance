@@ -1,4 +1,6 @@
 import { HTTPError } from 'ky'
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 import { queryClient } from '@/lib/react-query'
@@ -13,6 +15,13 @@ type finishTaskSchema = {
 }
 
 export function useTasks() {
+	const [searchParams] = useSearchParams()
+	const [page, setPage] = useState<number>(Number(searchParams.get('page')))
+
+	useEffect(() => {
+		setPage(Number(searchParams.get('page')))
+	}, [searchParams])
+
 	async function deleteTask({ id }: deleteTaskSchema) {
 		try {
 			const { message } = await DeleteTaskService({ id })
@@ -48,5 +57,6 @@ export function useTasks() {
 	return {
 		deleteTask,
 		finishTask,
+		page,
 	}
 }
