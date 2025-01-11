@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite --clearScreen false",
     "start": "vite start",
-    "build": "vite build",
+    "build": "turbo build",
     "preview": "vite preview"
   },
   "dependencies": {

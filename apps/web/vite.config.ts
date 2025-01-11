@@ -1,10 +1,10 @@
-import react from '@vitejs/plugin-react';
-import dotenv from 'dotenv';
-import path from 'path';
-import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react'
+import dotenv from 'dotenv'
+import path from 'path'
+import { defineConfig } from 'vite'
 
 // carrega o arquivo .env da raiz
-dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+dotenv.config({ path: path.resolve(__dirname, '../../.env') })
 
 export default defineConfig({
 	plugins: [react()],
@@ -16,4 +16,4 @@ export default defineConfig({
 	define: {
 		'process.env': process.env,
 	},
-});
+})
