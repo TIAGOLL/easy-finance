@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@easyfinance/api-types": "workspace:*",
+    "dotenv": "^16.4.7",
     "@easyfinance/eslint-config": "workspace:*",
     "@easyfinance/prettier-config": "workspace:*",
     "@easyfinance/typescript-config": "workspace:*",
