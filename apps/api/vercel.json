@@ -5,7 +5,7 @@
       "src": "src/main.ts",
       "use": "@vercel/node",
       "config": {
-        "nodeVersion": "16.x",
+        "nodeVersion": "18.x",
         "packageManager": "pnpm"
       }
     }
