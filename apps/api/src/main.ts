@@ -13,13 +13,6 @@ async function bootstrap() {
 
 	const configService = app.get<ConfigService<Env, true>>(ConfigService);
 
-	app.enableCors({
-		origin: 'https://saas-front-nu.vercel.app', // Permite o domínio do frontend
-		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS', // Métodos permitidos
-		credentials: true, // Permite envio de cookies/credenciais
-		allowedHeaders: 'Content-Type,Authorization', // Cabeçalhos permitidos
-	});
-
 	const port = configService.get('PORT', { infer: true });
 
 	// Swagger config
@@ -28,5 +21,11 @@ async function bootstrap() {
 	SwaggerModule.setup('docs', app, documentFactory);
 
 	await app.listen(port);
+
+	app.enableCors({
+		origin: '*',
+		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+		allowedHeaders: '*',
+	});
 }
 bootstrap();
