@@ -1,4 +1,4 @@
-@baseUrl = http://localhost:3030
+@baseUrl = https://saas-six-rho.vercel.app/
 @authToken = {{authenticate.response.body.token}}
 
 ###
