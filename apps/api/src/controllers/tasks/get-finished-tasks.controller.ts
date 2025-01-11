@@ -38,6 +38,7 @@ export class GetFinishedTaksController {
 		const totalTasks = await this.prisma.tasks.count({
 			where: {
 				finished: true,
+				user_id: sub,
 			},
 		});
 

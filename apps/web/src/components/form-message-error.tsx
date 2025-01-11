@@ -1,8 +1,8 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import type { FieldError, FieldErrorsImpl, Merge } from 'react-hook-form'
-import { LuAlertTriangle, LuInfo } from 'react-icons/lu'
+import { LuInfo } from 'react-icons/lu'
 import { VscError } from 'react-icons/vsc'
-
+import { FiAlertTriangle } from "react-icons/fi";
 import { Tooltip, TooltipProvider } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
 
@@ -44,7 +44,7 @@ export function FormMessageError({
 				<TooltipProvider>
 					<Tooltip>
 						<div className='flex items-center justify-start gap-1 text-sm'>
-							{variant === 'attencion' && <LuAlertTriangle />}
+							{variant === 'attencion' && <FiAlertTriangle />}
 							{variant === 'info' && <LuInfo />}
 							{variant === 'error' && <VscError />}
 							{errorMessage}

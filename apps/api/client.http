@@ -91,3 +91,10 @@ Authorization: Bearer {{authToken}}
     "name": "Fazer janta"
 }
 
+###
+
+# @name 
+GET  https://www.googleapis.com/oauth2/v3/userinfo
+Content-Type: application/json
+Authorization: Bearer ya29.a0ARW5m74XoBlrfwGW9_-0hs48WGCjJLsEOfBgNzj-BirAxrMi6LUxHo0XBbyZnZF5EL4YwhOF0-DSqHfY59vSjqcviWmdFZf-nNOSjDvVIvGOOCQmtottxt-PneH5z_Tuyb86xgnB0_r5zi6asZ8-VB_5TebgpdewLK8aCgYKAe0SARASFQHGX2MinzPymgjPvkJAsxfy5bo6sw0170
+

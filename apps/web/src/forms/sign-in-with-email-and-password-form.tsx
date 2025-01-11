@@ -81,7 +81,7 @@ export function SignInWithEmailAndPasswordForm() {
 					id='email'
 					{...register('email')}
 					autoComplete='off'
-					defaultValue='tiagoepitanga10@gmail.com'
+					defaultValue='john.doe@acme.com'
 				/>
 				<FormMessageError error={errors.email?.message} />
 			</div>
@@ -96,6 +96,7 @@ export function SignInWithEmailAndPasswordForm() {
 					id='password'
 					type='password'
 					autoComplete='off'
+					placeholder='123456'
 					{...register('password')}
 				/>
 				<FormMessageError error={errors.password?.message} />

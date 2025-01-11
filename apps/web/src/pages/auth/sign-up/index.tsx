@@ -1,8 +1,6 @@
-import { FcGoogle } from 'react-icons/fc'
 import { NavLink } from 'react-router-dom'
 
 import { ThemeSwitcher } from '@/components/theme-switcher'
-import { Button } from '@/components/ui/button'
 import {
 	Card,
 	CardContent,
@@ -11,6 +9,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from '@/components/ui/card'
+import { SignInWithGoogleForm } from '@/forms/sign-in-with-google-form'
 import { SignUpForm } from '@/forms/sign-up-form'
 
 export function SignUp() {
@@ -28,12 +27,7 @@ export function SignUp() {
 				</CardHeader>
 				<CardContent>
 					<div className='grid gap-4'>
-						<div className='grid grid-cols-1 gap-6'>
-							<Button variant='outline' type='button'>
-								<FcGoogle />
-								Google
-							</Button>
-						</div>
+						<SignInWithGoogleForm />
 						<div className='relative'>
 							<div className='absolute inset-0 flex items-center'>
 								<span className='w-full border-t' />

@@ -39,10 +39,11 @@ export class SignInWithEmailAndPasswordController {
 			throw new UnauthorizedException('Credenciais incorretas.');
 		}
 
-		const isPasswordValid = await compare(password, user.password);
-
-		if (!isPasswordValid) {
-			throw new UnauthorizedException('Credenciais incorretas.');
+		if (user.password) {
+			const isPasswordValid = await compare(password, user.password);
+			if (!isPasswordValid) {
+				throw new UnauthorizedException('Credenciais incorretas.');
+			}
 		}
 
 		const token = this.jwt.sign({ sub: user.id });

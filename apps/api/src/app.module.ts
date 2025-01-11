@@ -8,6 +8,7 @@ import { GetProfileController } from './controllers/auth/get-profile.controller'
 import { requestPasswordRecoverController } from './controllers/auth/request-password-recover.controller';
 import { resetPasswordController } from './controllers/auth/reset-password.controller';
 import { SignInWithEmailAndPasswordController } from './controllers/auth/sign-in-with-email-and-password.controller';
+import { SignInWithGoogle } from './controllers/auth/sign-in-with-google.controller';
 import { SignUpWithEmailAndPasswordController } from './controllers/auth/sign-up-with-email-and-password.controller';
 import { CreateTaskController } from './controllers/tasks/create-task.controller';
 import { DeleteTask } from './controllers/tasks/delete-task.controller';
@@ -40,6 +41,7 @@ import { PrismaService } from './prisma/prisma.service';
 		FinishTaskController,
 		PutTasksController,
 		GetPendingTaksController,
+		SignInWithGoogle,
 	],
 	providers: [PrismaService, MailSenderService],
 })

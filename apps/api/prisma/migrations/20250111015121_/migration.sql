@@ -12,7 +12,7 @@ CREATE TABLE "users" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "password" TEXT NOT NULL,
+    "password" TEXT,
     "email_verified" BOOLEAN NOT NULL DEFAULT false,
     "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3),
@@ -41,15 +41,15 @@ CREATE TABLE "accounts" (
 );
 
 -- CreateTable
-CREATE TABLE "Tasks" (
+CREATE TABLE "tasks" (
     "id" TEXT NOT NULL,
+    "user_id" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "finished" BOOLEAN NOT NULL DEFAULT false,
     "created_at" TIMESTAMP(3) DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3),
-    "user_id" TEXT NOT NULL,
 
-    CONSTRAINT "Tasks_pkey" PRIMARY KEY ("id")
+    CONSTRAINT "tasks_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
@@ -71,7 +71,7 @@ CREATE INDEX "accounts_user_id_idx" ON "accounts"("user_id");
 CREATE UNIQUE INDEX "accounts_provider_user_id_key" ON "accounts"("provider", "user_id");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Tasks_id_key" ON "Tasks"("id");
+CREATE UNIQUE INDEX "tasks_id_key" ON "tasks"("id");
 
 -- CreateIndex
-CREATE INDEX "Tasks_user_id_idx" ON "Tasks"("user_id");
+CREATE INDEX "tasks_user_id_idx" ON "tasks"("user_id");

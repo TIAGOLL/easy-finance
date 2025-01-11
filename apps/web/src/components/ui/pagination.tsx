@@ -1,5 +1,6 @@
 import * as React from 'react'
-import { LuChevronLeft, LuChevronRight, LuMoreHorizontal } from 'react-icons/lu'
+import { FiMoreHorizontal } from 'react-icons/fi'
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu'
 
 import { ButtonProps, buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -100,10 +101,11 @@ const PaginationEllipsis = ({
 		className={cn('flex h-9 w-9 items-center justify-center', className)}
 		{...props}
 	>
-		<LuMoreHorizontal className='h-4 w-4' />
+		<FiMoreHorizontal className='h-4 w-4' />
 		<span className='sr-only'>More pages</span>
 	</span>
 )
+
 PaginationEllipsis.displayName = 'PaginationEllipsis'
 
 export {

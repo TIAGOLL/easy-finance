@@ -1,5 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css'
 
+import { GoogleOAuthProvider } from '@react-oauth/google'
 import { QueryClientProvider } from '@tanstack/react-query'
 import { Flip, ToastContainer } from 'react-toastify'
 
@@ -9,21 +10,23 @@ import RoutesApp from '@/routes'
 
 function App() {
 	return (
-		<QueryClientProvider client={queryClient}>
-			<ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
-				<RoutesApp />
-				<ToastContainer
-					transition={Flip}
-					autoClose={3000}
-					draggable
-					closeButton
-					position='bottom-right'
-					stacked
-					theme={localStorage.getItem('vite-ui-theme') || 'light'}
-					limit={3}
-				/>
-			</ThemeProvider>
-		</QueryClientProvider>
+		<GoogleOAuthProvider clientId='255171139259-h9mak1bd764i3r8jjjnb9ij326vkdnq5.apps.googleusercontent.com'>
+			<QueryClientProvider client={queryClient}>
+				<ThemeProvider defaultTheme='light' storageKey='vite-ui-theme'>
+					<RoutesApp />
+					<ToastContainer
+						transition={Flip}
+						autoClose={3000}
+						draggable
+						closeButton
+						position='bottom-right'
+						stacked
+						theme={localStorage.getItem('vite-ui-theme') || 'light'}
+						limit={3}
+					/>
+				</ThemeProvider>
+			</QueryClientProvider>
+		</GoogleOAuthProvider>
 	)
 }
 
