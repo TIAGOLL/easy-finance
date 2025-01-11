@@ -9,12 +9,10 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
 		});
 	}
 
-	// Aguarda a conexão com o banco de dados na inicialização do módulo
 	async onModuleInit() {
 		await this.$connect();
 	}
 
-	// Aguarda a desconexão do banco de dados na destruição do módulo
 	async onModuleDestroy() {
 		await this.$disconnect();
 	}
