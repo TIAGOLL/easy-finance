@@ -12,6 +12,13 @@ async function bootstrap() {
 	});
 
 	const configService = app.get<ConfigService<Env, true>>(ConfigService);
+
+	app.enableCors({
+		origin: configService.get('WEB_URL', { infer: true }),
+		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+		credentials: true,
+	});
+
 	const port = configService.get('PORT', { infer: true });
 
 	// Swagger config
