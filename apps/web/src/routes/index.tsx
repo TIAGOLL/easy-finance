@@ -4,7 +4,7 @@ import { ForgotPassword } from '@/pages/auth/request-password-recover'
 import { ResetPassword } from '@/pages/auth/reset-password'
 import { SignIn } from '@/pages/auth/sign-In'
 import { SignUp } from '@/pages/auth/sign-up'
-import { Home } from '@/pages/homee'
+import { Home } from '@/pages/home'
 import { Tasks } from '@/pages/tasks'
 
 import { Private } from './private'
