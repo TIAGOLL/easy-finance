@@ -1,12 +1,11 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import { ForgotPassword } from '@/pages/auth/request-password-recover'
-import { ResetPassword } from '@/pages/auth/reset-password'
-import { SignIn } from '@/pages/auth/sign-In'
-import { SignUp } from '@/pages/auth/sign-up'
-import { Home } from '@/pages/home'
-import { Tasks } from '@/pages/tasks'
-
+import { ForgotPassword } from './../pages/auth/request-password-recover/index'
+import { ResetPassword } from './../pages/auth/reset-password/index'
+import { SignIn } from './../pages/auth/sign-In/index'
+import { SignUp } from './../pages/auth/sign-up/index'
+import { Home } from './../pages/home/index'
+import { Tasks } from './../pages/tasks/index'
 import { Private } from './private'
 
 function RoutesApp() {
