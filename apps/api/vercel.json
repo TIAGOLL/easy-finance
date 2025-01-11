@@ -7,7 +7,7 @@
       "config": {
         "nodeVersion": "18.x",
         "packageManager": "pnpm",
-        "installCommand": "pnpm install --no-frozen-lockfile",
+        "installCommand": "pnpm install --no-frozen-lockfile;",
         "buildCommand": "pnpm db:migrate:deploy; pnpm generate; pnpm db:sync; pnpm build;",
         "outputDirectory": "dist"
       }
