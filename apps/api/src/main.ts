@@ -1,6 +1,7 @@
 import { ConfigService } from '@nestjs/config';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as cors from 'cors';
 
 import { AppModule } from './app.module';
 import { Env } from './env';
@@ -22,10 +23,16 @@ async function bootstrap() {
 
 	await app.listen(port);
 
-	app.enableCors({
-		origin: '*',
-		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-		allowedHeaders: '*',
-	});
+	app.use(
+		cors({
+			// origin: 'https://saas-front-nu.vercel.app',
+			// methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+			// credentials: true,
+			// allowedHeaders: 'Content-Type,Authorization',
+			origin: '*',
+			methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+			allowedHeaders: '*',
+		})
+	);
 }
 bootstrap();
