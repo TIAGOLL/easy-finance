@@ -14,10 +14,22 @@ async function bootstrap() {
 	const configService = app.get<ConfigService<Env, true>>(ConfigService);
 
 	app.enableCors({
-		origin: 'https://saas-front-nu.vercel.app',
-		// origin: configService.get('WEB_URL', { infer: true }),
+		origin: configService.get('WEB_URL', { infer: true }),
 		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+		allowedHeaders: 'Content-Type, Authorization', // Cabeçalhos permitidos
 		credentials: true,
+	});
+
+	app.use((req, res, next) => {
+		if (req.method === 'OPTIONS') {
+			res.header('Access-Control-Allow-Origin', 'https://saas-front-nu.vercel.app');
+			res.header('Access-Control-Allow-Methods', 'GET,HEAD,PUT,PATCH,POST,DELETE');
+			res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+			res.header('Access-Control-Allow-Credentials', 'true');
+			res.sendStatus(204); // No Content
+		} else {
+			next();
+		}
 	});
 
 	const port = configService.get('PORT', { infer: true });
