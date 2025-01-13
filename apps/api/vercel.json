@@ -6,11 +6,10 @@
       "use": "@vercel/node"
     }
   ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/apps/api/src/main.ts",
-      "methods": ["GET", "POST", "PUT", "PATCH", "HEAD", "DELETE", "OPTIONS"]
-    }
-  ]
+  "functions": {
+    "/apps/api/src/main.ts": {}
+  },
+  "buildCommand": "pnpm generate; pnpm db:migrate:deploy; pnpm build",
+  "outputDirectory": "dist",
+  "installCommand": "pnpm i --no-frozen-lockfile;"
 }
