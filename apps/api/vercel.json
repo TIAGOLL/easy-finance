@@ -1,15 +1,6 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "/apps/api/src/main.ts",
-      "use": "@vercel/node"
-    }
-  ],
-  "functions": {
-    "/apps/api/src/main.ts": {}
-  },
-  "buildCommand": "pnpm generate; pnpm db:migrate:deploy; pnpm build",
+  "buildCommand": "pnpm db:migrate:deploy; pnpm generate; pnpm build",
   "outputDirectory": "dist",
   "installCommand": "pnpm i --no-frozen-lockfile;"
 }
