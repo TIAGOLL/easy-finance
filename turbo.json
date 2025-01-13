@@ -3,6 +3,19 @@
   "ui": "tui",
   "tasks": {
     "build": {
+      "env": [
+        "DATABASE_URL",
+        "JWT_PRIVATE_KEY",
+        "JWT_PUBLIC_KEY",
+        "PORT",
+        "HOST_EMAIL_SENDER",
+        "PORT_EMAIL_SENDER",
+        "USER_EMAIL_SENDER",
+        "PASS_EMAIL_SENDER",
+        "APP_NAME",
+        "API_URL",
+        "WEB_URL"
+      ],
       "dependsOn": [
         "^build"
       ],
