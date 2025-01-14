@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "pnpm env:load nest start --watch",
     "build": "pnpm env:load tsup src/main.ts",
-    "start": "pnpm env:load nest start",
+    "start": "pnpm env:load node dist/src/main.js",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "db:migrate:deploy": "pnpm env:load prisma migrate deploy",
     "db:migrate:dev": "pnpm env:load prisma migrate dev",
