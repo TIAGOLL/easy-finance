@@ -2,14 +2,21 @@
   "version": 2,
   "builds": [
     {
-      "src": "dist/main.js",
-      "use": "@vercel/node"
+      "src": "apps/api/src/main.ts",
+      "use": "@vercel/node",
+      "config": {
+        "nodeVersion": "18.x",
+        "packageManager": "pnpm",
+        "installCommand": "pnpm install --filter api... --frozen-lockfile",
+        "buildCommand": "pnpm db:migrate:deploy; pnpm generate; pnpm build --filter api...",
+        "outputDirectory": "apps/api/dist"
+      }
     }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "dist/main.js"
+      "dest": "apps/api/src/main.ts"
     }
   ]
 }

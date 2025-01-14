@@ -1,7 +1,6 @@
 {
   "extends": "@easyfinance/typescript-config/nest.json",
   "compilerOptions": {
-    "outDir": "./dist",
     "paths": {
     "@/*": ["./src/*"]
   }

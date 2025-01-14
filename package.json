@@ -5,7 +5,9 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint -- --fix",
-    "format": "eslint \"**/*.{ts,tsx}\" --fix && prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "eslint \"**/*.{ts,tsx}\" --fix && prettier --write \"**/*.{ts,tsx,md}\"",
+    "start:api": "pnpm --filter api start",
+    "build:api": "pnpm --filter api build"
   },
   "devDependencies": {
     "eslint-plugin-unused-imports": "^4.1.4",
