@@ -20,7 +20,7 @@ async function bootstrap() {
 	const documentFactory = () => SwaggerModule.createDocument(app, config);
 	SwaggerModule.setup('docs', app, documentFactory);
 
-	await app.listen(port);
+	await app.listen(process.env.PORT || 3000);
 
 	app.enableCors({
 		origin: 'https://saas-front-nu.vercel.app',
