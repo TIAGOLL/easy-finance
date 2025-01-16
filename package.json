@@ -3,10 +3,9 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "pnpm db:run && pnpm turbo run dev",
     "lint": "turbo lint -- --fix",
     "db:run": "docker-compose up -d",
-    "format": "eslint \"**/*.{ts,tsx}\" --fix && prettier --write \"**/*.{ts,tsx,md}\"",
     "start:api": "pnpm --filter api start",
     "build:api": "pnpm --filter api build"
   },

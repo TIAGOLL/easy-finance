@@ -6,7 +6,7 @@
   "compilerOptions": {
     "deleteOutDir": true,
     "tsConfigPath": "tsconfig.build.json",
-    "assets": ["**/*.ts", "!**/*.spec.ts"],
+    "assets": ["**/*"],
     "watchAssets": true
   }
 }
