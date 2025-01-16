@@ -8,7 +8,7 @@
         "nodeVersion": "18.x",
         "packageManager": "pnpm",
         "installCommand": "cd ../..; pnpm install --filter api... --frozen-lockfile",
-        "buildCommand": "pnpm db:migrate:deploy; pnpm generate; cd ../..; pnpm build --filter api...",
+        "buildCommand": "cd ../..; pnpm build --filter api...",
         "outputDirectory": "dist"
       }
     }
