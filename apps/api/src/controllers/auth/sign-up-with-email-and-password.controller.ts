@@ -1,12 +1,11 @@
 import { Body, ConflictException, Controller, HttpCode, Post } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { hash } from 'bcryptjs';
+import { MailSenderSchema, MailSenderService } from 'src/mail/mail-sender.service';
+import { SignUpBody, SignUpSubject } from 'src/mail/mails/sign-up-body-email';
+import { ZodValidationPipe } from 'src/pipes/zod-validation-pipe';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { z } from 'zod';
-
-import { type MailSenderSchema, MailSenderService } from '@/mail/mail-sender.service';
-import { SignUpBody, SignUpSubject } from '@/mail/mails/sign-up-body-email';
-import { ZodValidationPipe } from '@/pipes/zod-validation-pipe';
-import { PrismaService } from '@/prisma/prisma.service';
 
 import type { Env } from '../../env';
 

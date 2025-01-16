@@ -1,9 +1,8 @@
 import { Controller, Get, NotFoundException, UseGuards } from '@nestjs/common';
-
-import { CurrentUser } from '@/auth/current-user-decorator';
-import type { UserPayload } from '@/auth/jwt.strategy';
-import { JwtAuthGuard } from '@/auth/jwt-auth-guard';
-import { PrismaService } from '@/prisma/prisma.service';
+import { CurrentUser } from 'src/auth/current-user-decorator';
+import type { UserPayload } from 'src/auth/jwt.strategy';
+import { JwtAuthGuard } from 'src/auth/jwt-auth-guard';
+import { PrismaService } from 'src/prisma/prisma.service';
 
 @Controller('/sessions')
 @UseGuards(JwtAuthGuard)

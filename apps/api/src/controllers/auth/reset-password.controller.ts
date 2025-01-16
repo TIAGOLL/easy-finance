@@ -1,10 +1,9 @@
 import { Body, Controller, HttpCode, Patch, ServiceUnavailableException, UnauthorizedException } from '@nestjs/common';
 import { hash } from 'bcryptjs';
+import { MailSenderService } from 'src/mail/mail-sender.service';
+import { ZodValidationPipe } from 'src/pipes/zod-validation-pipe';
+import { PrismaService } from 'src/prisma/prisma.service';
 import { z } from 'zod';
-
-import { MailSenderService } from '@/mail/mail-sender.service';
-import { ZodValidationPipe } from '@/pipes/zod-validation-pipe';
-import { PrismaService } from '@/prisma/prisma.service';
 
 const ResetPasswordBodySchema = z.object({
 	token: z.string(),
