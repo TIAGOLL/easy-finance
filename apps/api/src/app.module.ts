@@ -1,8 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { envSchema } from '@/env';
-
+import { envSchema } from '../src/env';
 import { AuthModule } from './auth/auth.module';
 import { GetProfileController } from './controllers/auth/get-profile.controller';
 import { requestPasswordRecoverController } from './controllers/auth/request-password-recover.controller';

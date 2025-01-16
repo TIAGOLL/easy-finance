@@ -4,7 +4,7 @@ import * as nodemailer from 'nodemailer';
 import type { Address } from 'nodemailer/lib/mailer';
 import type Mail from 'nodemailer/lib/mailer';
 
-import type { Env } from '@/env';
+import type { Env } from '../env';
 
 export type MailSenderSchema = {
 	from?: Address;

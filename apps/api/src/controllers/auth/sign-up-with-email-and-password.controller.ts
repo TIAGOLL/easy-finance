@@ -3,11 +3,12 @@ import { ConfigService } from '@nestjs/config';
 import { hash } from 'bcryptjs';
 import { z } from 'zod';
 
-import type { Env } from '@/env';
 import { type MailSenderSchema, MailSenderService } from '@/mail/mail-sender.service';
 import { SignUpBody, SignUpSubject } from '@/mail/mails/sign-up-body-email';
 import { ZodValidationPipe } from '@/pipes/zod-validation-pipe';
 import { PrismaService } from '@/prisma/prisma.service';
+
+import type { Env } from '../../env';
 
 const SignUpWithEmailAndPasswordBodySchema = z.object({
 	name: z.string(),
