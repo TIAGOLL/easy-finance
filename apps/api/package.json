@@ -6,8 +6,8 @@
   "packageManager": "pnpm@9.15.1",
   "scripts": {
     "dev": "pnpm env:load nest start --watch",
-    "build": "pnpm nest build",
-    "start": "pnpm env:load node dist/src/main.js",
+    "build": "tsup src/main.ts",
+    "start": "pnpm env:load node dist/main.js",
     "start:dev": "nest start --watch",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "db:migrate:deploy": "pnpm env:load prisma migrate deploy",
