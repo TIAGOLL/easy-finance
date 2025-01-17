@@ -3,14 +3,7 @@
   "builds": [
     {
       "src": "/src/main.ts",
-      "use": "@vercel/node",
-      "config": {
-        "nodeVersion": "18.x",
-        "packageManager": "pnpm",
-        "installCommand": "cd ../..; pnpm install --filter api... --frozen-lockfile; db:migrate:deploy; pnpm generate;",
-        "buildCommand": "cd ../..; pnpm build:api",
-        "outputDirectory": "dist"
-      }
+      "use": "@vercel/node"
     }
   ],
   "routes": [
