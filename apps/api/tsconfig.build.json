@@ -1,9 +1,9 @@
-{
-  "extends": "./tsconfig.json",
-  "exclude": ["node_modules", "test", "**/*spec.ts"],
-  "compilerOptions": {
-    "paths": {
-      "src/*": ["./src/*"]
-    }
-  }
-}
+// {
+//   "extends": "./tsconfig.json",
+//   "exclude": ["node_modules", "test", "**/*spec.ts"],
+//   "compilerOptions": {
+//     "paths": {
+//       "src/*": ["./src/*"]
+//     }
+//   }
+// }
