@@ -1,9 +1,10 @@
 import { Body, Controller, HttpCode, Post, ServiceUnavailableException } from '@nestjs/common';
-import { MailSenderService } from 'src/mail/mail-sender.service';
-import { requestPasswordRecoverBody, requestPasswordRecoverSubject } from 'src/mail/mails/request-password-recover';
-import { ZodValidationPipe } from 'src/pipes/zod-validation-pipe';
-import { PrismaService } from 'src/prisma/prisma.service';
 import { z } from 'zod';
+
+import { MailSenderService } from '../../mail/mail-sender.service';
+import { requestPasswordRecoverBody, requestPasswordRecoverSubject } from '../../mail/mails/request-password-recover';
+import { ZodValidationPipe } from '../../pipes/zod-validation-pipe';
+import { PrismaService } from '../../prisma/prisma.service';
 
 const RequestPasswordRecoverBodySchema = z.object({
 	email: z.string().email(),

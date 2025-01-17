@@ -1,8 +1,9 @@
 import { Body, Controller, NotFoundException, Put, UseGuards } from '@nestjs/common';
-import { JwtAuthGuard } from 'src/auth/jwt-auth-guard';
-import { ZodValidationPipe } from 'src/pipes/zod-validation-pipe';
-import { PrismaService } from 'src/prisma/prisma.service';
 import { z } from 'zod';
+
+import { JwtAuthGuard } from '../../auth/jwt-auth-guard';
+import { ZodValidationPipe } from '../../pipes/zod-validation-pipe';
+import { PrismaService } from '../../prisma/prisma.service';
 
 const PutTaskSchema = z.object({
 	id: z.string(),
