@@ -1,17 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "/src/main.ts",
-      "use": "@vercel/node",
-      "config": {
-        "packageManager": "pnpm",
-        "installCommand": "pnpm install --frozen-lockfile; ",
-        "buildCommand": "db:migrate:deploy; pnpm generate; pnpm build;",
-        "outputDirectory": "dist"
-      }
-    }
-  ],
   "routes": [
     {
       "src": "(.*)",
