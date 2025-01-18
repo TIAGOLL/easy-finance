@@ -6,7 +6,7 @@
   "packageManager": "pnpm@9.15.1",
   "scripts": {
     "dev": "pnpm env:load nest start --watch",
-    "build": "pnpm db:migrate:deploy pnpm generate tsup src/main.ts",
+    "build": "pnpm db:migrate:deploy && pnpm generate && tsup src/main.ts",
     "start": "pnpm env:load node dist/main.js",
     "vercel build": "pnpm db:migrate:deploy pnpm generate tsup src/main.ts",
     "start:dev": "nest start --watch",
