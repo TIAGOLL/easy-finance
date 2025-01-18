@@ -5,7 +5,6 @@
       "src": "/dist/main.js",
       "use": "@vercel/node",
       "config": {
-        "nodeVersion": "18.x",
         "packageManager": "pnpm",
         "installCommand": "pnpm install --frozen-lockfile;",
         "buildCommand": "db:migrate:deploy; pnpm generate; pnpm build;",
@@ -16,7 +15,7 @@
   "routes": [
     {
       "src": "(.*)",
-      "dest": "/dist/main.js"
+      "dest": "/src/main.ts"
     }
   ]
 }
