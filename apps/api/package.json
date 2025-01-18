@@ -8,7 +8,7 @@
     "dev": "pnpm env:load nest start --watch",
     "build": "pnpm db:migrate:deploy pnpm generate tsup src/main.ts",
     "start": "pnpm env:load node dist/main.js",
-    "vercel build": "pnpm env:load node dist/main.js",
+    "vercel build": "pnpm db:migrate:deploy pnpm generate tsup src/main.ts",
     "start:dev": "nest start --watch",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "db:migrate:deploy": "pnpm env:load prisma migrate deploy",
