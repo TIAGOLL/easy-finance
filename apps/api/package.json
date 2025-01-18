@@ -6,7 +6,7 @@
   "packageManager": "pnpm@9.15.1",
   "scripts": {
     "dev": "pnpm env:load nest start --watch",
-    "build": "pnpm db:migrate:deploy && pnpm generate && tsup src/main.ts --out-dir dist --format esm,cjs",
+    "build": "pnpm db:migrate:deploy && pnpm generate && tsup src/main.ts --out-dir dist",
     "start": "pnpm env:load node dist/main.js",
     "start:dev": "nest start --watch",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
