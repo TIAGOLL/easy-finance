@@ -1,6 +1,18 @@
 {
   "version": 2,
-
+  "builds": [
+    {
+      "src": "/src/main.ts",
+      "use": "@vercel/node",
+      "config": {
+        "installCommand": "pnpm install --frozen-lockfile",
+        "buildCommand": "pnpm build",
+        "outputDirectory": "dist",
+        "tsconfig": "tsconfig.build.json",
+        "helpers": true
+      }
+    }
+  ],
   "routes": [
     {
       "src": "(.*)",
