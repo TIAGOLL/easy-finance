@@ -8,6 +8,7 @@ dotenv.config({ path: path.resolve(__dirname, '../../.env') })
 
 export default defineConfig({
 	plugins: [react()],
+
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, './src'),
