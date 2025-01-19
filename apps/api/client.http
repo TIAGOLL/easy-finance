@@ -1,4 +1,4 @@
-@baseUrl = https://saas-six-rho.vercel.app/
+@baseUrl = http://localhost:3030
 @authToken = {{authenticate.response.body.token}}
 
 ###
@@ -44,13 +44,13 @@ Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
 {
-    "name": "Fazer almoço"
+    "title": "Fazer almoço"
 }
 
 ###
 
-# @name get-tasks
-GET {{baseUrl}}/tasks?page=1
+# @name finished-tasks
+GET {{baseUrl}}/finished-tasks?page=1
 Content-Type: application/json
 Authorization: Bearer {{authToken}}
 
@@ -88,7 +88,7 @@ Authorization: Bearer {{authToken}}
 
 {
     "id": "63f76395-8dd2-41db-b1c3-debe22d7c90d",
-    "name": "Fazer janta"
+    "title": "Fazer janta"
 }
 
 ###
@@ -96,5 +96,5 @@ Authorization: Bearer {{authToken}}
 # @name 
 GET  https://www.googleapis.com/oauth2/v3/userinfo
 Content-Type: application/json
-Authorization: Bearer ya29.a0ARW5m74XoBlrfwGW9_-0hs48WGCjJLsEOfBgNzj-BirAxrMi6LUxHo0XBbyZnZF5EL4YwhOF0-DSqHfY59vSjqcviWmdFZf-nNOSjDvVIvGOOCQmtottxt-PneH5z_Tuyb86xgnB0_r5zi6asZ8-VB_5TebgpdewLK8aCgYKAe0SARASFQHGX2MinzPymgjPvkJAsxfy5bo6sw0170
+Authorization: Bearer {{authToken}}
 

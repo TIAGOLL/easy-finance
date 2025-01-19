@@ -23,7 +23,7 @@ async function bootstrap() {
 	await app.listen(port || 3000);
 
 	app.enableCors({
-		origin: 'https://saas-front-nu.vercel.app',
+		origin: '*',
 		methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
 		allowedHeaders: '*',
 	});
