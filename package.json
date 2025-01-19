@@ -4,10 +4,8 @@
   "scripts": {
     "build": "turbo build",
     "dev": "pnpm db:run && pnpm turbo run dev",
-    "lint": "turbo lint -- --fix",
     "db:run": "docker-compose up -d",
-    "start:api": "pnpm --filter api start",
-    "build:api": "pnpm --filter api build"
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
   "devDependencies": {
     "eslint-plugin-unused-imports": "^4.1.4",
