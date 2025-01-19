@@ -2,6 +2,7 @@ import 'react-toastify/dist/ReactToastify.css'
 
 import { GoogleOAuthProvider } from '@react-oauth/google'
 import { QueryClientProvider } from '@tanstack/react-query'
+import { Analytics } from '@vercel/analytics/react'
 import { Flip, ToastContainer } from 'react-toastify'
 
 import { ThemeProvider } from '@/components/theme-provider'
@@ -24,6 +25,7 @@ function App() {
 						theme={localStorage.getItem('vite-ui-theme') || 'light'}
 						limit={3}
 					/>
+					<Analytics />
 				</ThemeProvider>
 			</QueryClientProvider>
 		</GoogleOAuthProvider>
