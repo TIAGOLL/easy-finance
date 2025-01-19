@@ -1,5 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { HTTPError } from 'ky'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { MdOutlineAdd } from 'react-icons/md'
 import { toast } from 'react-toastify'
@@ -8,6 +9,7 @@ import type { z } from 'zod'
 import { FormMessageError } from '@/components/form-message-error'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { Loader } from '@/components/ui/loader'
 import { queryClient } from '@/lib/react-query'
 import { cn } from '@/lib/utils'
 import { CreateTaskService } from '@/services/create-task.service'
@@ -17,6 +19,8 @@ import { createTaskSchema } from './validations/create-task'
 type CreateTaskSchema = z.infer<typeof createTaskSchema>
 
 export function CreateTaskForm({ classname }: { classname?: string }) {
+	const [loading, setLoading] = useState<boolean>(false)
+
 	const {
 		formState: { errors },
 		register,
@@ -27,6 +31,7 @@ export function CreateTaskForm({ classname }: { classname?: string }) {
 	})
 
 	async function createTask(data: CreateTaskSchema) {
+		setLoading(true)
 		try {
 			const { message } = await CreateTaskService(data)
 
@@ -40,6 +45,7 @@ export function CreateTaskForm({ classname }: { classname?: string }) {
 		} finally {
 			reset()
 			queryClient.invalidateQueries({ queryKey: ['tasks'] })
+			setLoading(false)
 		}
 	}
 
@@ -55,8 +61,9 @@ export function CreateTaskForm({ classname }: { classname?: string }) {
 					{...register('title')}
 					className='col-span-4 w-full'
 				/>
-				<Button className='col-span-1'>
-					<MdOutlineAdd className='size-4' />
+				<Button className='col-span-1' disabled={loading}>
+					{!loading && <MdOutlineAdd className='size-4' />}
+					{loading && <Loader className='size-4' />}
 				</Button>
 			</div>
 			<FormMessageError error={errors.title?.message} />
