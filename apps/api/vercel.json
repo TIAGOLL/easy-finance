@@ -21,11 +21,5 @@
         { "key": "Access-Control-Allow-Methods", "value": "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS" }
       ]
     }
-  ],
-  "routes": [
-    {
-      "src": "(.*)",
-      "dest": "src/main.ts"
-    }
   ]
 }
